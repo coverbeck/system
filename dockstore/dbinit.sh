@@ -7,5 +7,5 @@ then
 fi
 docker exec -i postgres1 psql -U postgres < init.sql
 docker exec -i postgres1 psql webservice_test -U postgres < $DBSCRIPT
-WS_JAR=`find git/dockstore/dockstore/dockstore-webservice/target/d*SNAPSHOT.jar`
-#java -jar $WS_JAR db migrate ~/.dockstore/dockstore.yml  --migrations git/dockstore/dockstore/dockstore-webservice/src/main/resources/migrations.1.5.0.xml 
+WS_JAR=`find ~/git/ga4gh/dockstore/dockstore-webservice/target/d*SNAPSHOT.jar`
+java -jar $WS_JAR db migrate ~/.dockstore/dockstore.yml  --include 1.5.0
